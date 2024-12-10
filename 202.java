@@ -1,16 +1,16 @@
-import java.util.HashSet;
-
 class Solution {
     public boolean isHappy(int n) {
-        HashSet<Integer> set = new HashSet<Integer>();
-        while(n != 1 && !set.contains(n)){
-            set.add(n);
+        while(n>9){
             n = squareDigits(n);
         }
-        return n == 1;
+        if(n == 1 || n == 7){
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    private int squareDigits(int n){
+    public int squareDigits(int n){
         int sum = 0;
         while(n>0){
             int rem = n % 10;
